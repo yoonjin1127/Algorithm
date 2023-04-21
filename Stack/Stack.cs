@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stack
+namespace DataStructure
 {
-    internal class Stack
+    internal class Stack<T>
     {
         private const int DefaultCapacity = 4;
 
