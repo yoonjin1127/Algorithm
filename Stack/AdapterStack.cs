@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
+    /******************************************************
+	 * 어댑터 패턴 (Adapter)
+	 * 
+	 * 한 클래스의 인터페이스를 사용하고자 하는 다른 인터페이스로 변환
+	 ******************************************************/
     internal class AdapterStack
     {
         private List<T> container;
