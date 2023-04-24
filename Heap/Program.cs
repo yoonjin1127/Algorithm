@@ -9,6 +9,17 @@
          * 많은 자료 중 우선순위가 가장 높은 요소를 빠르게 가져오기 위해 사용
          *******************/
 
+        // Enqueue : 큐에 값을 추가 (선입)
+        // Dequeue : 큐에 값을 제거 (선출)
+
+        // 스택은 선입후출
+
+        // PriorityQueue(우선순위 큐)
+
+        // !트리기반 자료구조의 조건!
+        // 1. 부모 + 여러자식
+        // 2. 역순은 x (순환구조가 아니어야함)
+
         static void PriorityQueue()
         {
             PriorityQueue<string, int> acsendingPQ = new PriorityQueue<string, int>();
@@ -37,11 +48,27 @@
             {
                 Console.WriteLine(desendingPQ.Dequeue());    // 우선순위가 높은 순서대로 데이터 출력
             }
+            
+        }
+
+        static void Test1()             // 실수로 비교하고 문자열을 출력하는 우선순위 큐
+        {
+            PriorityQueue<string, float> ascendingFPQ = new PriorityQueue<string, float>();
+
+            ascendingFPQ.Enqueue("야호", 4.5f);
+            ascendingFPQ.Enqueue("안야호", 5.5f);
+
+            while (ascendingFPQ.Count > 0)
+            {
+                Console.WriteLine(ascendingFPQ.Dequeue());
+            }
+
         }
 
         static void Main(string[] args)
         {
             PriorityQueue();
+            Test1();
         }
     }
 }
