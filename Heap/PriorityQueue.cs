@@ -134,12 +134,12 @@ namespace DataStructure
             return (childIndex - 1) / 2;
         }
 
-        private int GetLeftChildIndex()     // 함수화
+        private int GetLeftChildIndex(int parentIndex)     // 함수화
         {
             return parentIndex * 2 + 1;
         }
 
-        private int GetRightChildIndex()
+        private int GetRightChildIndex(int parentIndex)
         {
             return parentIndex * 2 + 2;
         }
