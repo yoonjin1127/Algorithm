@@ -55,8 +55,9 @@
         {
             PriorityQueue<string, float> ascendingFPQ = new PriorityQueue<string, float>();
 
-            ascendingFPQ.Enqueue("야호", 4.5f);
-            ascendingFPQ.Enqueue("안야호", 5.5f);
+            ascendingFPQ.Enqueue("빗자루", 1.5f);
+            ascendingFPQ.Enqueue("대걸레", 2.5f);
+            ascendingFPQ.Enqueue("기름걸레", 3.5f);
 
             while (ascendingFPQ.Count > 0)
             {

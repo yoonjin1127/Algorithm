@@ -129,12 +129,17 @@ namespace DataStructure
             return rootNode.element;
         }
 
+        public TElement Peek()
+        {
+            return nodes[0].element;
+        }
+
         private int GetParentIndex(int childIndex)
         {
             return (childIndex - 1) / 2;
         }
 
-        private int GetLeftChildIndex(int parentIndex)     // 함수화
+        private int GetLeftChildIndex(int parentIndex)                                                                                                                // 함수화
         {
             return parentIndex * 2 + 1;
         }
