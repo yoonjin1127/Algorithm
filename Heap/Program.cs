@@ -65,6 +65,10 @@
 
         }
 
+        // 시간복잡도
+        // 탐색(가장 우선순위 높은)   추가          삭제
+        // O(1)                    O(logN)       O(logN)
+
         static void Main(string[] args)
         {
             PriorityQueue();

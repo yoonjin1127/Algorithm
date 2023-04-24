@@ -18,6 +18,8 @@ namespace DataStructure
 
     // 이진트리에서 우선순위가 높은 녀석이 위에 있는 상태를 힙 상태라고 함
 
+    // 힙에서 우선순위가 더 높은 노드가 추가됐을 때, 부모노드와 교체됨(계속해서 승격)
+
     internal class PriorityQueue<TElement, TPriority>
     {
         private struct Node
