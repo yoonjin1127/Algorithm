@@ -35,7 +35,7 @@ namespace BinarySearchTree
                     // 비교 노드가 왼쪽 자식이 있는 경우
                     if (current.left != null)
                     {
-                        // 왼쪽 자식과 또 비교하기 위해 current 왼쪽 자식으로 설정
+                        // 자식과 또 비교하기 위해 current 왼쪽 자식으로 설정
                         current.left = current;
                     }
                     // 비교 노드가 왼쪽 자식이 없는 경우
@@ -53,7 +53,7 @@ namespace BinarySearchTree
                     // 비교 노드가 오른쪽 자식이 있는 경우
                     if (current.right != null)
                     {
-                        // 오른쪽 자식과 또 비교하기 위해 current 오른쪽 자식으로 설정
+                        // 자식과 또 비교하기 위해 current 오른쪽 자식으로 설정
                         current = current.right;
                     }
                     // 비교 노드가 오른쪽 자식이 없는 경우
@@ -109,6 +109,54 @@ namespace BinarySearchTree
             return false;
         }
 
+        private void EraseNode(Node node)
+        {
+            // 1. 자식 노드가 없는 노드일 경우
+            if (node.HasNoChild)
+            {
+                if (node.IsLeftChild)
+                    node.parent.left = null;
+                else if (node.IsRightChild)
+                    node.parent.right = null;
+                else // if (node.IsRootNode)
+                    root = null;
+            }
+            // 2. 자식 노드가 1개인 노드일 경우
+            else if (node.HasLeftChild || node.HasRightChild)
+            {
+                Node parent = node.parent;
+                Node child = node.HasLeftChild ? node.left : node.right;
+
+                if (node.IsLeftChild)
+                {
+                    parent.left = child;
+                    child.parent = parent;
+                }
+                else if (node.IsRightChild)
+                {
+                    parent.right = child;
+                    child.parent = parent;
+                }
+                else   // if (node.IsRootNode)
+                {
+                    root = child;
+                    child.parent = null;
+                }
+            }
+            // 3. 자식 노드가 2개인 노드일 경우
+            // 왼쪽 자식 중 가장 큰 값과 데이터 교환한 후, 그 노드를 지워주는 방식으로 대체
+            else // if (node.HasBothChild)
+            {
+                Node replaceNode = node.left;
+                while (replaceNode.right != null)
+                {
+                    replaceNode = replaceNode.right;
+                }
+                node.item = replaceNode.item;
+                EraseNode(replaceNode);
+            }
+        }
+
         public class Node
         {
             // 객체, 부모, 좌측 자식, 우측 자식
@@ -124,6 +172,18 @@ namespace BinarySearchTree
                 this.left = left;
                 this.right = right;
             }
+
+            public bool IsRootNode { get { return parent == null; } }   
+            public bool IsLeftChild { get { return parent != null && parent.left == this; } }
+            public bool IsRightChild { get { return parent != null && parent.right == this; } }
+
+            public bool HasNoChild { get { return left == null && right == null; } }
+            public bool HasLeftChild { get { return left  != null && right == null; } }
+            public bool HasRightChild { get { return left == null && right != null; } }
+           //  public bool HasOneChild { get { return HasLeftChild ^ HasRightChild; } }
+            public bool HasBothtChild { get { return left != null && right != null; } }
+
+
 
         }
     }
