@@ -154,6 +154,16 @@ namespace BinarySearchTree
                 }
                 node.item = replaceNode.item;
                 EraseNode(replaceNode);
+
+                /* 어느쪽이든 상관없다
+                Node replaceNode = node.right;
+                while (replaceNode.left != null)
+                {
+                    replaceNode = replaceNode.left;
+                }
+                node.item = replaceNode.item;
+                EraseNode(replaceNode);
+                */
             }
         }
 
