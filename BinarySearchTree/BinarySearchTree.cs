@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace BinarySearchTree
+namespace DataStructure
 {
     internal class BinarySearchTree<T> where T : IComparable<T>     // T는 비교가능한 자료형
     {
@@ -165,6 +165,18 @@ namespace BinarySearchTree
                 EraseNode(replaceNode);
                 */
             }
+        }
+
+        public void Print()
+        {
+            Print(root);
+        }
+
+        public void Print(Node node)
+        {
+            if (node.left != null) Print(node.left);
+            Console.WriteLine(node.item);
+            if (node.right != null) Print(node.right);
         }
 
         public class Node
