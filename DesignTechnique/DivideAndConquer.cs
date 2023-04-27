@@ -38,9 +38,9 @@ namespace DesignTechnique
 
             if (n == 0)
                 return 1;
-            else if (n % 2 == 0)
+            else if (n % 2 == 0)        // 짝수일 때
                 return Pow(x * x, n / 2);
-            else
+            else                        // 홀수일 때
                 return x * Pow(x * x, (n - 1) / 2);
         }
     }
