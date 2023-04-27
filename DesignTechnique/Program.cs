@@ -50,11 +50,21 @@ namespace DesignTechnique
             Move(5, 0, 2);              // 5층 탑을 0번 스틱에서 2번 스틱으로 이동
         }
 
+        // 대기시간 계산에는 탐욕 알고리즘을 적용가능
+        /*
+        public static int CountTime(params int[] task)
+        {
+            Array.Sort(task);
+
+            int result = 0;
+        }
+        */
+
         static void Main(string[] args)
         {
             Backtracking backtracking = new Backtracking();
             bool[,] board = new bool[4,4];
-            backtracking.NQueen(board);
+            backtracking.NQueen(board);       // {2, 4, 1, 3}
         }
     }
 }
