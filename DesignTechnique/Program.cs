@@ -54,7 +54,7 @@ namespace DesignTechnique
         {
             Backtracking backtracking = new Backtracking();
             bool[,] board = new bool[4,4];
-            backtracking.
+            backtracking.NQueen(board);
         }
     }
 }
