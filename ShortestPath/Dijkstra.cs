@@ -19,7 +19,7 @@ namespace ShortestPath
 
         const int INF = 99999;      // 무한대 상수 설정 (MaxValue를 쓰지 않는 이유는 오버 플로우 방지)
 
-        public static void ShortestPath(int[,] graph, int start, out int[] distance, out int[] path)
+        public static void ShortestPath(in int[,] graph, int start, out int[] distance, out int[] path)
         {
             int size = graph.GetLength(0);
             bool[] visited = new bool[size];
@@ -29,7 +29,7 @@ namespace ShortestPath
             for (int i = 0; i<size; i++) 
             {
                 distance[i] = INF;
-                path[i] = -1;
+                path[i] = distance[i] < INF ? start : -1;
             }
             for (int i = 0; i<size; i++) 
             {
@@ -45,6 +45,7 @@ namespace ShortestPath
                         minCost = distance[j];
                     }
                 }
+
                 // 2. 직접 연결된 거리보다 거쳐서 더 짧아진다면 갱신
                 for (int j = 0; j<size; j++)
                 {

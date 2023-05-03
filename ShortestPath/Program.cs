@@ -30,7 +30,7 @@
             int[] path;         // 경로
 
             //  다익스트라 알고리즘을 이용한 최단 경로 계산
-            Dijkstra.ShortestPath(graph, 0, out distance, out path);
+            Dijkstra.ShortestPath(in graph, 0, out distance, out path);
             Console.WriteLine("<Dijkstra>");
             PrintDijkstra(distance, path);
 
