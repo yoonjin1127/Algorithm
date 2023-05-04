@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Searching", "Searching\Sear
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortestPath", "ShortestPath\ShortestPath.csproj", "{E56DE951-A47B-417A-A785-30909EF1AA20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathFinding", "PathFinding\PathFinding.csproj", "{FE70BFEE-5843-4BFF-9401-3C0F2A971656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathFinding", "PathFinding\PathFinding.csproj", "{FE70BFEE-5843-4BFF-9401-3C0F2A971656}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project_TextRPG", "Project_TextRPG\Project_TextRPG.csproj", "{F22FE907-046E-4F2B-B7F9-F76EEE927A7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{FE70BFEE-5843-4BFF-9401-3C0F2A971656}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE70BFEE-5843-4BFF-9401-3C0F2A971656}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE70BFEE-5843-4BFF-9401-3C0F2A971656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F22FE907-046E-4F2B-B7F9-F76EEE927A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22FE907-046E-4F2B-B7F9-F76EEE927A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F22FE907-046E-4F2B-B7F9-F76EEE927A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F22FE907-046E-4F2B-B7F9-F76EEE927A7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
