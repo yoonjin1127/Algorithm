@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Project_TextRPG
 {
@@ -94,11 +95,43 @@ namespace Project_TextRPG
             running = false;
         }
 
+
+
+        /**************씬 변경 함수******************/
+
+
+        // 메인 메뉴 이동 함수
+        public void MainMenu()
+        {
+            // 현재 씬을 메인메뉴씬으로
+            curScene = mainMenu;
+        }
+
+        // 배틀 시작 함수
         public void BattleStart(Monster monster)
         {
             // 현재 씬을 배틀씬으로
             curScene = battleScene;
+            
+            // 몬스터 호출
+            battleScene.BattleStart(monster);
         }
+
+        // 맵 이동 함수
+        public void Map()
+        {
+            // 현재 씬을 맵씬으로
+            curScene = mapScene;
+        }
+
+        // 인벤토리 이동 함수
+        public void Inventory()
+        {
+            curScene = inventoryScene;
+        }
+
+
+
 
         // 랜더링 함수
         private void Render()   

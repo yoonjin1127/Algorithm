@@ -14,12 +14,27 @@ namespace Project_TextRPG
 
         public override void Render()
         {
+            // 맵과 메뉴, 정보를 출력한다
             PrintMap();
+            PrintMenu();
+            PrintInfo();
         }
 
         public override void Update()
         {
             ConsoleKeyInfo input = Console.ReadKey();
+
+            // 시스템 키 입력시 씬 전환
+            if (input.Key == ConsoleKey.Q)
+            {
+                game.MainMenu();
+                return;
+            }
+            else if (input.Key == ConsoleKey.I)
+            {
+                game.Inventory();
+                return;
+            }
 
             // 플레이어 이동
             switch (input.Key) 
@@ -36,6 +51,14 @@ namespace Project_TextRPG
                 case ConsoleKey.RightArrow:
                     Data.player.Move(Direction.Right);
                     break;
+            }
+
+            // 아이템 습득
+            Item item = Data.ItemInPos(Data.player.pos);
+            if (item != null)
+            {
+                Data.player.GetItem(item);
+                Data.items.Remove(item);
             }
 
             // 플레이어 몬스터 접근
@@ -61,6 +84,12 @@ namespace Project_TextRPG
                 }
 
             }
+        }
+
+        // 맵 생성
+        public void GenerateMap()
+        {
+            Data.LoadLevel1();
         }
 
 
@@ -115,11 +144,11 @@ namespace Project_TextRPG
             Console.ForegroundColor = ConsoleColor.White;
             (int left, int top) pos = Console.GetCursorPosition();
             Console.SetCursorPosition(Data.map.GetLength(1) + 3, 1);
-            Console.Write("메뉴 : Q");
+            Console.Write("             메뉴 : Q             ");
             Console.SetCursorPosition(Data.map.GetLength(1) + 3, 3);
-            Console.Write("이동 : 방향키");
+            Console.Write("             이동 : 방향키         ");
             Console.SetCursorPosition(Data.map.GetLength(1) + 3, 4);
-            Console.Write("인벤토리 : I");
+            Console.Write("             인벤토리 : I         ");
         }
 
         // 정보 출력
